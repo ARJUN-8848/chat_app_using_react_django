@@ -1,0 +1,197 @@
+/* General reset and background styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(180deg, #ffe6e6, #ffcccc); /* Softer peach to coral gradient */
+    color: #495057; /* Darker text for readability */
+    display: flex;
+    flex-direction: column; /* Allow vertical stacking */
+    height: 100vh;
+    overflow: hidden; /* Prevent scroll on body */
+}
+
+/* Navbar styling */
+nav {
+    width: 100%;
+    padding: 12px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Softer shadow for depth */
+    z-index: 1000;
+    border-bottom: 1px solid #e9ecef; /* Subtle border for separation */
+    transition: background-color 0.3s ease;
+}
+
+nav:hover {
+    background-color: rgba(248, 249, 250, 0.9); /* Light gray on hover */
+}
+
+nav img {
+    cursor: pointer;
+    width: 40px; /* Fixed size for logo */
+    height: auto; /* Maintain aspect ratio */
+}
+
+nav h2 {
+    font-size: 26px; /* Increased font size for prominence */
+    color: #343a40; /* Darker gray for contrast */
+    font-weight: 700; /* Bold font weight */
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5); /* Subtle text shadow for depth */
+}
+
+/* Message container */
+.messages {
+    margin-top: 60px; /* Adjusted margin for nav height */
+    width: 100%;
+    height: calc(100vh - 120px); /* Dynamic height calculation */
+    display: flex;
+    flex-direction: column-reverse;
+    overflow-y: auto; /* Enables scrolling */
+    padding: 20px; /* Padding for better spacing */
+    background: linear-gradient(180deg, #ffe6e6, #ffcccc);  /* Solid white background for message area */
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+/* Individual message styling */
+.message {
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* Space between messages */
+}
+
+.owner, .another {
+    padding: 16px 20px; /* Slightly larger padding for comfort */
+    margin: 10px 0; /* Increased margin for better separation */
+    border-radius: 20px; /* Rounder message bubbles */
+    max-width: 75%; /* More space for messages */
+    word-wrap: break-word;
+    font-size: 16px; /* Larger text for better readability */
+    line-height: 1.5;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Shadow for messages */
+    transition: transform 0.2s, box-shadow 0.2s; /* Animation for hover effect */
+}
+
+.owner:hover, .another:hover {
+    transform: translateY(-3px); /* More noticeable lift on hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+.owner {
+    align-self: flex-end;
+    background-color: #d4edda; /* Soft green */
+    border: 1px solid #c3e6cb; /* Light green border */
+    color: #155724; /* Dark green text */
+    font-weight: 500; /* Slightly lighter font weight */
+}
+
+.another {
+    align-self: flex-start;
+    background-color: #cce5ff; /* Soft blue */
+    border: 1px solid #b8daff; /* Light blue border */
+    color: #004085; /* Dark blue text */
+    font-weight: 500; /* Slightly lighter font weight */
+}
+
+.owner h3, .another h3 {
+    font-size: 14px; /* Adjusted size for headers */
+    margin-bottom: 6px; /* More space below headers */
+    font-weight: 600;
+    color: inherit;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5); /* Subtle text shadow */
+}
+
+img.image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px; /* Rounded image corners */
+    margin-top: 8px;
+    object-fit: cover;
+}
+
+/* Input container styling */
+.send {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    padding: 12px;
+    background-color: #ffffff; /* White background */
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Space between inputs */
+    border-top: 1px solid #dee2e6; /* Top border for separation */
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); /* Shadow on top */
+    border-radius: 12px 12px 0 0; /* Rounded top corners */
+}
+
+/* Input field styles */
+.send input[type="text"] {
+    flex-grow: 1;
+    padding: 14px;
+    font-size: 16px;
+    border-radius: 25px; /* More rounded input */
+    border: 1px solid #ced4da;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transition for focus state */
+}
+
+.send input[type="text"]:focus {
+    border-color: #007bff; /* Blue border on focus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Focus shadow */
+}
+
+.send input[type="submit"],
+.send input[type="file"] {
+    background-color: #007bff; /* Bootstrap primary color */
+    color: #fff;
+    border: none;
+    padding: 12px 18px;
+    font-size: 16px;
+    border-radius: 25px; /* Rounder buttons */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s; /* Animation for hover */
+}
+
+.send input[type="submit"]:hover,
+.send input[type="file"]:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-2px); /* Subtle lift on hover */
+}
+
+.send input[type="submit"] {
+    flex-basis: 20%; /* Button width */
+}
+
+.send input[type="file"] {
+    flex-basis: 15%; /* File input width */
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+    nav h2 {
+        font-size: 20px; /* Adjust font size on small screens */
+    }
+
+    .messages {
+        padding: 15px; /* Reduce padding on smaller screens */
+    }
+
+    .send {
+        padding: 10px; /* Reduce padding in send area */
+    }
+
+    .send input[type="text"] {
+        padding: 10px; /* Reduce padding for smaller devices */
+    }
+}
